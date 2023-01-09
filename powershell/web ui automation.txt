@@ -1,0 +1,8 @@
+$ie = new-object -com "InternetExplorer.Application"
+$ie.navigate("https://www.naver.com/")
+$ie.visible = $true
+
+$doc = $ie.document
+$tb1 = $doc.getElementByID("TextBox1")
+
+click() 속성이 가진 것을 찾아야 클릭할 수 있음

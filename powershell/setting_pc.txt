@@ -1,0 +1,11 @@
+SoundVolumeHotkeys url
+https://www.softarium.com/soundvolumehotkeys/SoundVolumeHotkeys.exe
+
+chorme url
+https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7B12EA88B6-E66D-16CA-31B6-42BA599A0B70%7D%26lang%3Dko%26browser%3D4%26usagestats%3D1%26appname%3DGoogle%2520Chrome%26needsadmin%3Dprefers%26ap%3Dx64-stable-statsdef_1%26brand%3DJJTC%26installdataindex%3Dempty/update2/installers/ChromeSetup.exe
+
+(new-object System.Net.WebClient).DownloadFile('URL', $env:TEMP+'\program.exe'); start $env:TEMP\program.exe
+
+(new-object System.Net.WebClient).DownloadFile('https://www.softarium.com/soundvolumehotkeys/SoundVolumeHotkeys.exe', $env:TEMP+'\SoundVolumeHotkeys.exe'); start $env:TEMP\SoundVolumeHotkeys.exe
+(new-object System.Net.WebClient).DownloadFile('https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7B12EA88B6-E66D-16CA-31B6-42BA599A0B70%7D%26lang%3Dko%26browser%3D4%26usagestats%3D1%26appname%3DGoogle%2520Chrome%26needsadmin%3Dprefers%26ap%3Dx64-stable-statsdef_1%26brand%3DJJTC%26installdataindex%3Dempty/update2/installers/ChromeSetup.exe', $env:TEMP+'\chorme.exe'); start $env:TEMP\chorme.exe
+update-help
