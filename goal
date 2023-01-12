@@ -8,3 +8,7 @@
     - 기본적으로 실행시킬 수 있는 것은 internet explore 가 기본으로 제공되고 chorme이나 edge와 같은 것은 web driver가 따로 필요한 것으로 보임
     - 예외적으로 selenium이나 webdriver가 없더라도 다른 여러수단을 통해 가능한 것으로 보임. [- https://www.reddit.com/r/vba/comments/xvhe7d/chrome_automation_without_selenium/, - https://github.com/sancarn/stdVBA-examples/tree/main/Examples/BrowserAutomation, - https://github.com/PerditionC/VBAChromeDevProtocol]
     - powershell과 selenium이용 사이트 참고 [ https://medium.com/@abdulkadirakyurt.de/selenium-and-powershell-17cf6c504ff1 ]
+
+    - selenium 이용해 자동으로 pc 세팅하기 [ https://medium.com/@abdulkadirakyurt.de/selenium-and-powershell-17cf6c504ff1 ]
+
+    
