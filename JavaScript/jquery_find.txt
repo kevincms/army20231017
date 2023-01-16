@@ -1,0 +1,11 @@
+jquery에서 ajax를 사용할 때 html를 불러왔을 떄 쉽게 선택하는 법 검색하면서 깨달음.
+기본적으로 find 기능에서 jquery 선택자처럼 선택이 가능함.
+$.ajax({
+    url : "test_url",
+    dataType : 'html',
+    success : function(data) { // 결과 성공 콜백함수
+        $(data).find()
+        // 기본적으로 data라는 html 변수에서 원하는 요소를 선택할 때 find를 사용했음. 
+        // find에서 $("#id .class") 와 같은 선택자 방식을 지원한다는 것을 알게 됨.
+    },
+})

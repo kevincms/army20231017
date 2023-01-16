@@ -12,4 +12,18 @@ update-help
 
 
 파워쉘 selenium 사용 준비 [ https://www.youtube.com/watch?v=ZZjp6zIgkLU ]
+
+import부터 막힘. 보안 설정 해제해야 되는 듯
+[ https://stackoverflow.com/questions/68904813/could-not-load-dll-file-in-powershell ]
+[ https://stackoverflow.com/questions/34400546/could-not-load-file-or-assembly-operation-is-not-supported-exception-from-hres ]
+
+보안 설정을 해제한 파일을 업로드해도 다시 로컬에서 해제해야 함. CLI에서 처리할 수 있는지 먼저 확인해야 됨.
+
 Import-Module ".\WebDriver.dll"
+
+
+
+$ChromeOptions.Addargument("start-maximized")
+$ChromeOptions.AcceptInsecureCertificates = $True
+
+$ChromeDriver=New-Object OpenQA.Selenium.Chrome.ChromeDriver $ChromeOptions
