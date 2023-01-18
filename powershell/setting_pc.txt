@@ -6,8 +6,14 @@ https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D
 
 (new-object System.Net.WebClient).DownloadFile('URL', $env:TEMP+'\program.exe'); start $env:TEMP\program.exe
 
-(new-object System.Net.WebClient).DownloadFile('https://www.softarium.com/soundvolumehotkeys/SoundVolumeHotkeys.exe', $env:TEMP+'\SoundVolumeHotkeys.exe'); start $env:TEMP\SoundVolumeHotkeys.exe
-(new-object System.Net.WebClient).DownloadFile('https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7B12EA88B6-E66D-16CA-31B6-42BA599A0B70%7D%26lang%3Dko%26browser%3D4%26usagestats%3D1%26appname%3DGoogle%2520Chrome%26needsadmin%3Dprefers%26ap%3Dx64-stable-statsdef_1%26brand%3DJJTC%26installdataindex%3Dempty/update2/installers/ChromeSetup.exe', $env:TEMP+'\chorme.exe'); start $env:TEMP\chorme.exe
+$soundvolumehotkeys_URL="https://www.softarium.com/soundvolumehotkeys/SoundVolumeHotkeys.exe"
+(new-object System.Net.WebClient).DownloadFile($soundvolumehotkeys_URL, $env:TEMP+'\SoundVolumeHotkeys.exe'); start $env:TEMP\SoundVolumeHotkeys.exe
+$chorme_URL="https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7B12EA88B6-E66D-16CA-31B6-42BA599A0B70%7D%26lang%3Dko%26browser%3D4%26usagestats%3D1%26appname%3DGoogle%2520Chrome%26needsadmin%3Dprefers%26ap%3Dx64-stable-statsdef_1%26brand%3DJJTC%26installdataindex%3Dempty/update2/installers/ChromeSetup.exe"
+(new-object System.Net.WebClient).DownloadFile($chorme_URL, $env:TEMP+'\chorme.exe'); start $env:TEMP\chorme.exe
+$webdriver_URL="https://raw.githubusercontent.com/kevincms/army20231017/main/powershell/powershell%20%ED%8C%8C%EC%9D%BC/WebDriver.dll"
+(new-object System.Net.WebClient).DownloadFile($webdriver_URL, $env:TEMP+'\WebDriver.dll');
+$chormedriver_URL="https://raw.githubusercontent.com/kevincms/army20231017/main/powershell/powershell%20%ED%8C%8C%EC%9D%BC/chromedriver.exe"
+(new-object System.Net.WebClient).DownloadFile($chormedriver_URL, $env:TEMP+'chromedriver.exe');
 update-help
 
 
@@ -18,6 +24,15 @@ import부터 막힘. 보안 설정 해제해야 되는 듯
 [ https://stackoverflow.com/questions/34400546/could-not-load-file-or-assembly-operation-is-not-supported-exception-from-hres ]
 
 보안 설정을 해제한 파일을 업로드해도 다시 로컬에서 해제해야 함. CLI에서 처리할 수 있는지 먼저 확인해야 됨.
+[ https://www.geeksforgeeks.org/how-to-find-the-file-properties-using-powershell/ ]
+[ https://devblogs.microsoft.com/scripting/use-a-powershell-cmdlet-to-work-with-file-attributes/ ]
+
+$webdriver_path=$env:TEMP+'\WebDriver.dll'
+
+Get-Item $webdriver_path
+Get-ItemProperty $webdriver_path
+Get-ChildItem $webdriver_path
+
 
 Import-Module ".\WebDriver.dll"
 
