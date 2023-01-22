@@ -28,15 +28,25 @@ import부터 막힘. 보안 설정 해제해야 되는 듯
 [ https://devblogs.microsoft.com/scripting/use-a-powershell-cmdlet-to-work-with-file-attributes/ ]
 
 $webdriver_path=$env:TEMP+'\WebDriver.dll'
+$chromedriver_path=$env:TEMP+'\chromedriver.exe'
 
 Get-Item $webdriver_path
 Get-ItemProperty $webdriver_path
 Get-ChildItem $webdriver_path
 
 
-Import-Module ".\WebDriver.dll"
+[ https://www.youtube.com/watch?v=lRXRRFGGBbk ]
 
+$workking_space=$env:TEMP
 
+$webdriver_path=$env:TEMP+'\WebDriver.dll'
+$chromedriver_path=$env:TEMP+'\chromedriver.exe'
+
+Add-Type -Path $webdriver_path
+
+Import-Module $webdriver_path
+$ChromeDriver=New-Object OpenQA.Selenium.Chrome.ChromeDriver
+$ChromeDriver
 
 $ChromeOptions.Addargument("start-maximized")
 $ChromeOptions.AcceptInsecureCertificates = $True
