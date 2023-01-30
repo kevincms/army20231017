@@ -12,7 +12,7 @@ $chorme_URL="https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A6
 (new-object System.Net.WebClient).DownloadFile($chorme_URL, $env:TEMP+'\chorme.exe'); start $env:TEMP\chorme.exe
 $edge_URL="https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingservice/files/44b7c0de-8eff-4295-89a9-7dd2d7180b33/MicrosoftEdgeSetup.exe"
 (new-object System.Net.WebClient).DownloadFile($edge_URL, $env:TEMP+'\edge.exe'); start $env:TEMP\edge.exe
-$webdriver_URL=7"https://raw.githubusercontent.com/kevincms/army20231017/main/powershell/powershell%20%ED%8C%8C%EC%9D%BC/WebDriver.dll"
+$webdriver_URL="https://raw.githubusercontent.com/kevincms/army20231017/main/powershell/powershell%20%ED%8C%8C%EC%9D%BC/WebDriver.dll"
 (new-object System.Net.WebClient).DownloadFile($webdriver_URL, $env:TEMP+'\WebDriver.dll');
 $chormedriver_URL="https://raw.githubusercontent.com/kevincms/army20231017/main/powershell/powershell%20%ED%8C%8C%EC%9D%BC/chromedriver.exe"
 (new-object System.Net.WebClient).DownloadFile($chormedriver_URL, $env:TEMP+'chromedriver.exe');
@@ -39,18 +39,23 @@ Get-ChildItem $webdriver_path
 
 [ https://www.youtube.com/watch?v=lRXRRFGGBbk ]
 
+Add-Type -Path $webdriver_path
+
 $workking_space=$env:TEMP
 
 $webdriver_path=$env:TEMP+'\WebDriver.dll'
 $chromedriver_path=$env:TEMP+'\chromedriver.exe'
 
-Add-Type -Path $webdriver_path
 
+
+Set-Location $workking_space
 Import-Module $webdriver_path
-$ChromeDriver=New-Object OpenQA.Selenium.Chrome.ChromeDriver
-$ChromeDriver
 
+$ChromeOptions=New-Object OpenQA.Selenium.Chrome.ChromeOptions
 $ChromeOptions.Addargument("start-maximized")
 $ChromeOptions.AcceptInsecureCertificates = $True
+
+$ChromeDriver=New-Object OpenQA.Selenium.Chrome.ChromeDriver -ArgumentList $ChromeOptions
+$ChromeDriver
 
 $ChromeDriver=New-Object OpenQA.Selenium.Chrome.ChromeDriver $ChromeOptions
