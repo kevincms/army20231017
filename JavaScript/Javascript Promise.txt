@@ -1,0 +1,9 @@
+# javscript jquery ajax를 이용해서 크롤링을 할 때 정보를 request를 한 뒤 response를 기다리지 않고 다음 코드가 실행되는 경우가 여럿 발견. 그에 대한 원인을 알고자 공부 시작
+1. callback
+    [ https://www.youtube.com/watch?v=TAyLeIj1hMc ]
+    - callback function : 다른 함수의 입력값으로 전달되어 다른 함수에 의해 호출되는 함수. 
+      변수로 선언된 함수 자체가 콜백함수인 것이 아니고 그것이 위의 동작을 실행할 때 callback function이 됨.
+
+2. promise
+    [ https://www.youtube.com/watch?v=Sn0ublt7CWM&list=PLuHgQVnccGMBVQ4ZcIRmcOeu8uktUAbxI&index=2 ]
+    - 

@@ -15,7 +15,7 @@ $edge_URL="https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingservice/f
 $webdriver_URL="https://raw.githubusercontent.com/kevincms/army20231017/main/powershell/powershell%20%ED%8C%8C%EC%9D%BC/WebDriver.dll"
 (new-object System.Net.WebClient).DownloadFile($webdriver_URL, $env:TEMP+'\WebDriver.dll');
 $chormedriver_URL="https://raw.githubusercontent.com/kevincms/army20231017/main/powershell/powershell%20%ED%8C%8C%EC%9D%BC/chromedriver.exe"
-(new-object System.Net.WebClient).DownloadFile($chormedriver_URL, $env:TEMP+'chromedriver.exe');
+(new-object System.Net.WebClient).DownloadFile($chormedriver_URL, $env:TEMP+'\chromedriver.exe');
 update-help
 
 
@@ -45,7 +45,6 @@ $workking_space=$env:TEMP
 
 $webdriver_path=$env:TEMP+'\WebDriver.dll'
 $chromedriver_path=$env:TEMP+'\chromedriver.exe'
-
 
 
 Set-Location $workking_space
