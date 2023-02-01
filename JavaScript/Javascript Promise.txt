@@ -6,4 +6,9 @@
 
 2. promise
     [ https://www.youtube.com/watch?v=Sn0ublt7CWM&list=PLuHgQVnccGMBVQ4ZcIRmcOeu8uktUAbxI&index=2 ]
-    - 
+    - javascript는 기본적으로 비동기방식(async)으로 작동한다. 때문에 크롤링을 할 때 서버로부터 데이터를 받아오지 않더라도 다음동작을 수행해 오류가 나는 경우가 많았던 것이다.
+    - .then 과 .catch then의 경우 성공했을 경우 리턴값을 콜백함수의 인수로 반환, catch의 경우 실패했을 경우 실패했을 때의 오류메세지를 콜백할수로 반환
+      정확히 콜백함수의 인수로 반환하는지 정확하지 않음.
+
+3. 
+    [ https://www.youtube.com/watch?v=1z5bU-CTVsQ&list=PLuHgQVnccGMBVQ4ZcIRmcOeu8uktUAbxI&index=3 ]

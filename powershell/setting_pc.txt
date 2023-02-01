@@ -38,6 +38,7 @@ Get-ChildItem $webdriver_path
 
 
 [ https://www.youtube.com/watch?v=lRXRRFGGBbk ]
+[ https://adamtheautomator.com/selenium-and-powershell/ ]
 
 Add-Type -Path $webdriver_path
 
