@@ -3,10 +3,12 @@
     [ https://www.youtube.com/watch?v=TAyLeIj1hMc ]
     - callback function : 다른 함수의 입력값으로 전달되어 다른 함수에 의해 호출되는 함수. 
       변수로 선언된 함수 자체가 콜백함수인 것이 아니고 그것이 위의 동작을 실행할 때 callback function이 됨.
+      한마디로 함수가 바로 실행되지 않고 다른 함수에 의해 실행되는 경우 그 함수를 콜백함수라 함.
 
 2. promise
     [ https://www.youtube.com/watch?v=Sn0ublt7CWM&list=PLuHgQVnccGMBVQ4ZcIRmcOeu8uktUAbxI&index=2 ]
-    - javascript는 기본적으로 비동기방식(async)으로 작동한다. 때문에 크롤링을 할 때 서버로부터 데이터를 받아오지 않더라도 다음동작을 수행해 오류가 나는 경우가 많았던 것이다.
+    - javascript는 기본적으로 동기방식(sync)으로 작동한다. 하지만 setTimeout이나 ajax 등 비동기로 작동하는 함수들이 존재한다.
+      때문에 크롤링을 할 때 서버로부터 데이터를 받아오지 않더라도 다음동작을 수행해 오류가 나는 경우가 많았던 것이다.
     - .then 과 .catch then의 경우 성공했을 경우 리턴값을 콜백함수의 인수로 반환, catch의 경우 실패했을 경우 실패했을 때의 오류메세지를 콜백할수로 반환
       정확히 콜백함수의 인수로 반환하는지 정확하지 않음.
 
@@ -29,4 +31,10 @@
     - Promise.race([list]) list 안의 함수가 하나라도 끝났을 때 끝난 함수의 반환값을 promise로 반환
 
 + 
-[ https://www.youtube.com/watch?v=s1vpVCrT8f4 ]
+1. sync & async 개념 + callback hell
+    [ https://www.youtube.com/watch?v=s1vpVCrT8f4 ]
+
+2. Promise로 인한 callback hell 해결
+    [ https://www.youtube.com/watch?v=JB_yU6Oe2eE ]
+    - Promise는 생성되는 즉시 통신을 시도한다.
+    - 실제로 코딩해봐야 감이 올 것 같음.
