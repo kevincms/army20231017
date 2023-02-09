@@ -9,9 +9,41 @@
     [ https://www.youtube.com/watch?v=Sn0ublt7CWM&list=PLuHgQVnccGMBVQ4ZcIRmcOeu8uktUAbxI&index=2 ]
     - javascript는 기본적으로 동기방식(sync)으로 작동한다. 하지만 setTimeout이나 ajax 등 비동기로 작동하는 함수들이 존재한다.
       때문에 크롤링을 할 때 서버로부터 데이터를 받아오지 않더라도 다음동작을 수행해 오류가 나는 경우가 많았던 것이다.
-    - .then 과 .catch then의 경우 성공했을 경우 리턴값을 콜백함수의 인수로 반환, catch의 경우 실패했을 경우 실패했을 때의 오류메세지를 콜백할수로 반환
-      정확히 콜백함수의 인수로 반환하는지 정확하지 않음.
+    - Promise 생성
+      Promise는 new Promise((reslove,reject)=>{reslove()}) 의 형식으로 생성할 수 있다.
+      주로 내가 원하는 작업의 경우 함수 안에 리턴값으로 반환을 하면 될 것 같다.
+    - .then 과 .catch 
+      2가지 모두 Promise 뒤에 붙여 사용할 수 있다. 또한 .then 과 .catch 의 리턴값 또한 Promise 이기 때문에 계속 붙여 사용가능하다.
+      then의 경우 Promise 안의 함수값 인수 reslove가 실행되었을 때 reslove안의 인자가 then안의 함수값 인자로 들어온다. (성공의 경우)
+      catch의 경우 reject가 실행되었을때 reject가의 인자가 catch안의 함수값 인자로 들어온다. (실패의 경우)
 
+      나눗셈을 구현한 예시
+
+      function devide(numA, numB) {
+      return new Promise((resolve, reject) => {
+        if (numB === 0) reject(new Error("Unable to devide by 0."));
+        else resolve(numA / numB);
+      });
+      }
+
+      devide(8, 2)
+        .then((result) => console.log("성공:", result))
+        .catch((error) => console.log("실패:", error));
+      
+      특정 서버에서 1초뒤에 값을 받아오고 출력하는 예시
+      var test_num
+
+      function test(){
+          return new Promise((reslove,reject)=>{
+              setTimeout(()=>reslove(2),1000)
+          })
+      }
+
+      test().then((num)=>{
+          test_num=num
+          console.log(test_num)
+      })
+      
 3. async & await
     [ https://www.youtube.com/watch?v=1z5bU-CTVsQ&list=PLuHgQVnccGMBVQ4ZcIRmcOeu8uktUAbxI&index=3 ]
     - javascript에서 비동기방식(async)으로 작동하게 하는 방법
@@ -19,13 +51,7 @@
       await는 async 함수(function) 안에서만 사용이 가능하다. 함수를 선언하고 앞에 async를 붙이면 된다.
       async 함수는 리턴값이 promise이기 때문에 await를 붙인 후 다시 async 함수에 넣어 비동기적으로 처리할 수 있다.
 
-4. new Promise
-    [ https://www.youtube.com/watch?v=PasFh_t1mhY&list=PLuHgQVnccGMBVQ4ZcIRmcOeu8uktUAbxI&index=4 ]
-    - promise 객체를 만드는 방법 new Promise(function(reslove, reject){})
-      reslove 성공했을 때 함수 , reject 실패했을 때 함수
-      정확하게 지금 파악하지 못함. 크롤링 할 때 사용해봐야 알 것 같음
-
-5. Promise All, Race 
+4. Promise All, Race 
     [ https://www.youtube.com/watch?v=a5AzftkvW9U&list=PLuHgQVnccGMBVQ4ZcIRmcOeu8uktUAbxI&index=5 ]
     - Promise.all([list]) list 안의 함수가 모두 끝났을 때 각 함수의 반환값을 list형태의 promise로 반환
     - Promise.race([list]) list 안의 함수가 하나라도 끝났을 때 끝난 함수의 반환값을 promise로 반환
