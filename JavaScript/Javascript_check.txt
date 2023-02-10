@@ -1,0 +1,6 @@
+# Javascript에서 확인창 만들기
+    - 동기 : Javascript 에서 alert()을 실행하게 되면 javascript가 동작하지 않음.
+             때문에 setInterval 실행 후 alert()을 실행하게 되면 setInterval안의 콜백함수가 동작하지 않음.
+             이를 해결하기 위해 setInterval안의 콜백함수가 동작하면서도 알림창을 띄울 수 있는 방안 탐색.
+
+    - modal 창과 popup 창에 차이가 존재한다는 것 인지. 명확하게는 아직 모르겠음.
