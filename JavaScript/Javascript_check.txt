@@ -4,3 +4,7 @@
              이를 해결하기 위해 setInterval안의 콜백함수가 동작하면서도 알림창을 띄울 수 있는 방안 탐색.
 
     - modal 창과 popup 창에 차이가 존재한다는 것 인지. 명확하게는 아직 모르겠음.
+    - alert 창 대안을 찾음. window.open() 다만 문제점이 존재. 
+      console 창에서 setTimeout을 이용해 4.990 초 정도 지난 후에 window.open()를 실행하면 실행이 되지가 않음.
+      다만 test=window.open() 후 test.document 를 통해 해당 페이지를 조작가능.
+      그래서 그 페이지에 버튼을 만들고 그것을 눌렀을 때 정보 또한 받아올 수 있었음.

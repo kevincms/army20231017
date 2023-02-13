@@ -5,6 +5,12 @@
       변수로 선언된 함수 자체가 콜백함수인 것이 아니고 그것이 위의 동작을 실행할 때 callback function이 됨.
       한마디로 함수가 바로 실행되지 않고 다른 함수에 의해 실행되는 경우 그 함수를 콜백함수라 함.
 
+    - 콜백함수는 왜 존재하는가? 그냥 따로 실행하면 안되나?
+      초반에는 불편했는데 javascript의 특징과 배경을 생각해보면 간단했음.
+      첫 번쨰로 javascript는 함수형 언어임. 내장 함수가 굉장히 많음.
+      두 번째는 비동기적 처리가 많음. 시간이 지나거나 일정 시간마다 거나 아니면 서버에서 데이터를 가져온 후라던가 등이 존재.
+      때문에 어떤 시간에 코드를 실행하는지가 절차지향형으로는 구현하기가 쉽지 않음. 때문에 콜백함수는 존재한다고 추측함.
+
 2. promise
     [ https://www.youtube.com/watch?v=Sn0ublt7CWM&list=PLuHgQVnccGMBVQ4ZcIRmcOeu8uktUAbxI&index=2 ]
     - javascript는 기본적으로 동기방식(sync)으로 작동한다. 하지만 setTimeout이나 ajax 등 비동기로 작동하는 함수들이 존재한다.
@@ -44,12 +50,18 @@
           console.log(test_num)
       })
       
-3. async & await
+3. async function & await
     [ https://www.youtube.com/watch?v=1z5bU-CTVsQ&list=PLuHgQVnccGMBVQ4ZcIRmcOeu8uktUAbxI&index=3 ]
-    - javascript에서 비동기방식(async)으로 작동하게 하는 방법
-      await는 콜백함수의 인자를 반환하기 위한 선언 var test = await test_function()
-      await는 async 함수(function) 안에서만 사용이 가능하다. 함수를 선언하고 앞에 async를 붙이면 된다.
-      async 함수는 리턴값이 promise이기 때문에 await를 붙인 후 다시 async 함수에 넣어 비동기적으로 처리할 수 있다.
+    - javascript에서 function를 비동기방식(async)으로 작동하게 하는 방법 = function에서 retunr new Promise()를 쓰지 않고 return만 사용하고도 promise를 리턴하는 방법.
+      async를 function 앞에 선언하면 promise를 반환하고 비동기적으로 처리할 수 있다.
+
+      await는 async 함수(function) 안에서만 사용이 가능하다.
+      await는 함수가 처리될때까지 기다리라는 선언이다.
+      주로 var test = await test_function() 와 같이 test_function()이 끝나면 test에 값을 리턴하는 형태와 같이 사용된다.
+      다만 이런한 식으로 연속해서 사용할 경우 비동기적 처리가 되지 않기 때문에 test_function이 promise를 리턴한다면
+      var test_promise = test_function()
+      var test = test_promise
+      와 같은 형태로 비동기적 처리를 수행할 수 있다.
 
 4. Promise All, Race 
     [ https://www.youtube.com/watch?v=a5AzftkvW9U&list=PLuHgQVnccGMBVQ4ZcIRmcOeu8uktUAbxI&index=5 ]
