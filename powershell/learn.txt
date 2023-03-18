@@ -1,0 +1,21 @@
+Get-Content "FILE_NAME" -Stream Zone.Identifier
+Get-Content "test.exe" -Stream Zone.Identifier
+
+(new-object System.Net.WebClient).DownloadFile('URL', $env:TEMP+'\program.exe'); start $env:TEMP\program.exe
+
+압축파일 해제
+Expand-Archive -LiteralPath "zip path"  -DestinationPath "해제경로"
+
+SSL/TLS 설정
+[Enum]::GetNames([Net.SecurityProtocolType]) -contains 'Tls12'
+[System.Net.ServicePointManager]::SecurityProtocol.HasFlag([Net.SecurityProtocolType]::Tls12)
+[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
+
+powershell Get
+Invoke-WebRequest "http://localhost:8888/api/Send?param1=PARAM1&param2=PARAM2"
+Invoke-WebRequest -Method GET -Uri http://localhost:8888/api/Send?param1=PARAM1&param2=PARAM2
+
+powershell post
+$text="param1=PARAM1&param2=PARAM2"
+$postParam=[System.Text.Encoding]::UTF8.GetBytes($text)
+Invoke-WebRequest -Method POST -Body $postParam -ContentType "application/x-www-form-urlencoded; charset=utf-8" -Uri http://localhost:8888/api/Send
