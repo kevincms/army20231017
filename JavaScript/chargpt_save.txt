@@ -1,0 +1,38 @@
+const https = require('https');
+const fs = require('fs');
+
+const subscriptionKey = 'YOUR_SUBSCRIPTION_KEY';
+const endpoint = 'https://api.cognitive.microsoft.com';
+const path = '/bing/v7.0/custom/search';
+
+function bingWebSearch(search) {
+  let request_params = {
+    method : 'GET',
+    hostname : 'api.cognitive.microsoft.com',
+    path : '/bing/v7.0/custom/search?q=' + encodeURIComponent(search),
+    headers : {
+      'Ocp-Apim-Subscription-Key' : subscriptionKey,
+    }
+  };
+
+  let response_handler = function (response) {
+    let body = '';
+    response.on('data', function (d) {
+      body += d;
+    });
+    response.on('end', function () {
+      fs.writeFile('output.json', body, (err) => {
+        if (err) throw err;
+        console.log('The file has been saved!');
+      });
+    });
+    response.on('error', function (e) {
+      console.log('Error: ' + e.message);
+    });
+  };
+
+  let req = https.request(request_params, response_handler);
+  req.end();
+}
+
+bingWebSearch('대화 기록 저장');

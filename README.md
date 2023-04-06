@@ -12,5 +12,5 @@ start $env:TEMP\edge.exe
 
 git 자꾸 오류남
 
-git config --global user.email "kevincms314@naver.com"
+git config --global user.email "kevincms314@naver.com"  
 git config --global user.name "kevincms"
