@@ -1,7 +1,7 @@
 def check_winner(board):
     # 행 확인
     for row in board:
-        if board[row][0] == board[row][1] == board[row][col] and board[row][0] != ' ':
+        if row[0] == row[1] == row[2] and row[0] != ' ':
             return row[0]
 
     # 열 확인
@@ -61,7 +61,9 @@ while game_over:
    
     done = False
 
-    if block_human_win(board)!=None : board[i][j] = 'O'
+    if block_human_win(board)!=None :
+        temp_i, temp_j = block_human_win(board)
+        board[temp_i][temp_j] = 'O'
     else:
         for i in range(3):
             for j in range(3):
@@ -69,6 +71,7 @@ while game_over:
                     board[i][j] = 'O'
                     done = True
                     break
+
     winner = check_winner(board)
     if winner!=None : game_over = False
 
