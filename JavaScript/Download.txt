@@ -1,0 +1,13 @@
+csv_front="data:text/csv;charset=utf-8;"
+
+test_csv="1,2,3"
+blob=new Blob([test_csv],{type:"text/csv"})
+url=URL.createObjectURL(blob)
+
+test_tag=document.createElement("a")
+test_tag.href=url
+test_tag.download="test.csv"
+
+document.body.appendChild(test_tag)
+test_tag.click()
+document.body.removeChild(test_tag)
