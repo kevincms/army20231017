@@ -1,7 +1,7 @@
 def check_winner(board):
     # 행 확인
     for row in board:
-        if row[0] == row[1] == row[2] and row[0] != ' ':
+        if board[row][0] == board[row][1] == board[row][col] and board[row][0] != ' ':
             return row[0]
 
     # 열 확인
