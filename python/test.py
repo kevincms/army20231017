@@ -1,2 +1,4 @@
-test=[1,2,3]
-print(sum(test)/len(test))
+student = {
+                "test":1
+            }
+print(student["test"])
